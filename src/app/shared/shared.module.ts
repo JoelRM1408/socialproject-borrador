@@ -5,6 +5,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ImgBrokenDirective } from './directives/img-broken.directive';
+import { IconModule } from './icons/icons.module';
+import { MatIconModule } from '@angular/material/icon';
 
 
 
@@ -17,7 +19,9 @@ import { ImgBrokenDirective } from './directives/img-broken.directive';
   imports: [
     CommonModule,
     RouterModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    IconModule,
+    MatIconModule
   ],
     exports:[
     SidebarComponent,

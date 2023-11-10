@@ -18,9 +18,11 @@ const routes: Routes = [
         loadChildren: () => import('../convenios/convenios.module').then(m => m.ConveniosModule)
       },
       {
-        path: 'proyecto',
+        path: 'proyectos',
         loadChildren: () => import('../proyecto/proyecto.module').then(m => m.ProyectoModule),
+
       },
+
       {
         path:'**',
         redirectTo:'welcome'

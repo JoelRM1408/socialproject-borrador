@@ -1,93 +1,141 @@
-<form class="example-form" [formGroup]="formGroup" (ngSubmit)="send()">
-  <h2 class="header-form">Datos Personales</h2>
-  <div class="row">
-    <!-- nombre -->
-    <mat-form-field class="example-full-width">
-      <mat-label>Nombres</mat-label>
-      <input type="text" matInput formControlName="nombres" [errorStateMatcher]="matcher" placeholder="Josue David">
-      <mat-error *ngIf="formGroup.get('nombres')?.hasError('required')">
-        El nombre es <strong>requerido</strong>
-      </mat-error>
-    </mat-form-field>
-    <!-- Apellidos -->
-    <mat-form-field class="example-full-width">
-      <mat-label>Apellidos</mat-label>
-      <input type="text" matInput formControlName="apellidos" [errorStateMatcher]="matcher"
-        placeholder="Dominguez Huamani">
-      <mat-error *ngIf="formGroup.get('apellidos')?.hasError('required')">
-        El apellidos es <strong>requerido</strong>
-      </mat-error>
-    </mat-form-field>
-    <!-- email -->
-    <mat-form-field class="example-full-width">
-      <mat-label>Email</mat-label>
-      <input type="email" matInput formControlName="email" [errorStateMatcher]="matcher"
-        placeholder="example@upeu.edu.pe">
-      <mat-error *ngIf="formGroup.get('email')?.hasError('required')">
-        Introduce un email valido
-      </mat-error>
-      <mat-error *ngIf="formGroup.get('email')?.hasError('required')">
-        El email es <strong>requerido</strong>
-      </mat-error>
-    </mat-form-field>
+<form class="example-form" [formGroup]="docintForm" (ngSubmit)="guardar()">
+  <h2 class="header-form">DOCUMENTO DE INTERVENCION</h2>
+  <div class="buscador">
+    <div class="colum">
+      <form class="nombrebuscar">
+        <label for="">Nombre de documento de intervencion</label>
+        <input class="prueba" placeholder="Ingresar Nombre"  type="text">
+      </form>
+      <div class="iconbuscar">
+        <button mat-mini-fab color="basic" aria-label="Example icon button with a search icon"
+                  (click)="editar">
+                <mat-icon>search</mat-icon>
+        </button>
+        <!-- <mat-icon class="iconbc" svgIcon="buscador"></mat-icon> -->
+      </div>
+    </div>
+    <div class="colum2">
+      <form class="form">
+        <label for="">Tipo</label>
+        <select class="flecha" class="select">
+          <option value="" disabled selected>Seleccionar</option>
+          <option value="1"></option>
+        </select>
+      </form>
+      <form class="form">
+        <label for="">Estado</label>
+        <select name="asd" class="select">
+          <option value="" disabled selected>Seleccionar</option>
+          <option value="1"></option>
+        </select>
+      </form>
+
+    </div>
   </div>
-  <div class="row">
-    <!-- codigo -->
-    <mat-form-field class="example-full-width">
-      <mat-label>Código</mat-label>
-      <input type="number" matInput formControlName="codigo" [errorStateMatcher]="matcher" placeholder="197010543">
-      <mat-error *ngIf="formGroup.get('codigo')?.hasError('required')">
-        El codigo es <strong>requerido</strong>
-      </mat-error>
-    </mat-form-field>
-    <!-- dni -->
-    <mat-form-field class="example-full-width">
-      <mat-label>Dni</mat-label>
-      <input type="number" matInput formControlName="dni" [errorStateMatcher]="matcher" placeholder="78923141">
-      <mat-error *ngIf="formGroup.get('dni')?.hasError('required')">
-        El dni es <strong>requerido</strong>
-      </mat-error>
-    </mat-form-field>
-  </div>
-  <h2 class="header-form">Datos Académicos</h2>
-  <div class="row">
-    <!-- carrera -->
-    <mat-form-field class="example-full-width">
-      <mat-label>Carrera</mat-label>
-      <input type="text" matInput formControlName="carrera" [matAutocomplete]="autocarrera">
-      <mat-autocomplete #autocarrera="matAutocomplete" [displayWith]="displayFn">
-        <mat-option *ngFor="let option of filteredOptionsCarrera | async" [value]="option">
-          {{option.name}}
-        </mat-option>
-      </mat-autocomplete>
-    </mat-form-field>
-    <!-- ciclo -->
-    <mat-form-field class="example-full-width">
-      <mat-label>Ciclo</mat-label>
-      <input type="text" matInput formControlName="ciclo" [matAutocomplete]="autociclo">
-      <mat-autocomplete #autociclo="matAutocomplete" [displayWith]="displayFn2">
-        <mat-option *ngFor="let option of filteredOptionsCiclo | async" [value]="option">
-          {{option.ciclo}}
-        </mat-option>
-      </mat-autocomplete>
-    </mat-form-field>
-    <!-- username -->
-    <mat-form-field class="example-full-width">
-      <mat-label>Username</mat-label>
-      <input type="text" matInput formControlName="username" [errorStateMatcher]="matcher" placeholder="example123">
-    </mat-form-field>
-    <!-- Password -->
-    <mat-form-field class="example-full-width">
-      <mat-label>Password</mat-label>
-      <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
-      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
-        [attr.aria-pressed]="hide">
-        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-      </button>
-    </mat-form-field>
-  </div>
-  <div class="row">
+  <!-- <h2 class="header-form">Datos Académicos</h2> -->
+
+  <!-- <div class="row">
     <button mat-raised-button class="btn--agregar" type="submit">Agregar</button>
     <a [routerLink]="['/home/proyecto/agregar']">cancelar</a>
-  </div>
+  </div> -->
 </form>
+<div id="contenedor2">
+  <button class="buttonregis" mat-fab extended color="primary">
+    <mat-icon title="" svgIcon="agregar"></mat-icon>
+    Nuevo Documento
+  </button>
+</div>
+<div id="darforma">
+  <div id="contenedor3">
+    <mat-card class="example-card" id="table">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title></mat-card-title>
+        <mat-card-subtitle></mat-card-subtitle>
+      </mat-card-header>
+      <div class="mat-elevation-z8">
+        <table mat-table #table matSort [dataSource]="dataSource" class="mat-elevation-z8">
+
+          <ng-container matColumnDef="id">
+            <th mat-header-cell mat-sort-header *matHeaderCellDef> ID </th>
+            <td mat-cell *matCellDef="let item"> {{item.id}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="nombredocint">
+            <th mat-header-cell mat-sort-header *matHeaderCellDef> Nombre </th>
+            <td mat-cell *matCellDef="let item"> {{item.nombre}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="tipo">
+            <th mat-header-cell mat-sort-header *matHeaderCellDef> Tipo </th>
+            <td mat-cell *matCellDef="let item"> {{item.tipodocint.nombre}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="fechaini">
+            <th mat-header-cell mat-sort-header *matHeaderCellDef> Fecha Inicio </th>
+            <td mat-cell *matCellDef="let item"> {{item.fechaini}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="fechafin">
+            <th mat-header-cell mat-sort-header *matHeaderCellDef> Fecha Fin </th>
+            <td mat-cell *matCellDef="let item"> {{item.fechafin}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="estado">
+            <th mat-header-cell mat-sort-header *matHeaderCellDef> Estado </th>
+            <td mat-cell *matCellDef="let item"> {{item.estado}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="doc">
+            <th mat-header-cell mat-sort-header *matHeaderCellDef> Doc </th>
+            <td mat-cell *matCellDef="let item">
+              <button mat-mini-fab color="basic" aria-label="Example icon button with a visibilityicon"
+              (click)="editar(item)">
+              <mat-icon>description</mat-icon>
+            </button>
+            </td>
+          </ng-container>
+
+
+          <ng-container matColumnDef="autor">
+            <th mat-header-cell mat-sort-header *matHeaderCellDef> Autor </th>
+            <td mat-cell *matCellDef="let item"> {{item.autor.autor}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="acciones">
+            <th mat-header-cell *matHeaderCellDef> Acciones </th>
+            <td mat-cell *matCellDef="let item">
+
+              <div class="example-button-container">
+                <button mat-mini-fab color="basic" aria-label="Example icon button with a edit icon"
+                (click)="editar(item)">
+                <mat-icon>visibility</mat-icon>
+                </button>
+                <button mat-mini-fab color="basic" aria-label="Example icon button with a visibilityicon"
+                  (click)="editar(item)">
+                  <mat-icon>edit</mat-icon>
+                </button>
+                <button mat-mini-fab color="basic" aria-label="Example icon button with a delete icon"
+                  (click)="eliminar(item)">
+                  <mat-icon>delete</mat-icon>
+                </button>
+              </div>
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+        </table>
+        <mat-paginator #paginator [pageSize]="5" [pageSizeOptions]="[5, 10, 20]" [showFirstLastButtons]="true">
+        </mat-paginator>
+      </div>
+    </mat-card>
+
+  </div>
+</div>
+
+
+
+
+

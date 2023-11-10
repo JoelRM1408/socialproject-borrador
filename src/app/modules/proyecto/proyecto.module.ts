@@ -8,12 +8,17 @@ import {MatInputModule} from '@angular/material/input'
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { FormProyectoComponent } from './pages/components/form-proyecto/form-proyecto.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import { PruebaComponent } from './pages/components/prueba/prueba.component';
 import { StandComponent } from 'src/app/shared/components/stand/stand.component';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSort, MatSortModule } from '@angular/material/sort';
+import { MatTableModule } from '@angular/material/table';
+import { FormulariodocIntComponent } from './pages/components/formulariodoc-int/formulariodoc-int.component';
 
 
 @NgModule({
@@ -21,7 +26,8 @@ import { StandComponent } from 'src/app/shared/components/stand/stand.component'
     ProyectoComponent,
     OptionsComponent,
     FormProyectoComponent,
-    PruebaComponent
+    PruebaComponent,
+    FormulariodocIntComponent
   ],
   imports: [
     CommonModule,
@@ -31,9 +37,16 @@ import { StandComponent } from 'src/app/shared/components/stand/stand.component'
     MatFormFieldModule,
     ReactiveFormsModule,
     MatAutocompleteModule,
+    FormsModule,
+    MatTableModule,
     MatIconModule,
     MatButtonModule,
-    StandComponent
+    StandComponent,
+    MatTooltipModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatPaginatorModule
+
   ],
   schemas:[CUSTOM_ELEMENTS_SCHEMA]
 })

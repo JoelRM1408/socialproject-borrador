@@ -1,49 +1,33 @@
  <nav class="menu__side">
    <div class="name__page">
-     <i class="fab fa-youtube" [routerLink]="['/home/welcome']"></i>
-     <h4>SPPU</h4>
+     <img src="assets/img/upeu.jpg" width="60px" [routerLink]="['/home/welcome']" >
    </div>
    <ul class="options__menu">
      <li>
-      <a [routerLink]="['/home/proyecto']" class="option">
-         <i class="fas fa-home" title="Inicio"></i>
-         <h4>Proyectos</h4>
+      <a class="option" [routerLink]="['/home/proyectos']">
+         <mat-icon title="docint" svgIcon="docint"></mat-icon>
+         <h4><strong>Documento Intervencion</strong></h4>
+      </a>
+     </li>
+     <li>
+       <a class="option"  [routerLink]="['/home/convenio']" >
+         <mat-icon id="arreglo" title="proyecto" svgIcon="proyecto"></mat-icon>
+         <h4 id="arregloa"><strong>Proyecto</strong></h4>
        </a>
      </li>
 
      <li>
-       <a class="option" [routerLink]="['/home/convenio']" >
-         <i class="far fa-file" title="Portafolio"></i>
-         <h4>Convenio</h4>
+       <a class="option"  href="#">
+         <mat-icon id="arreglo" title="informe" svgIcon="informe"></mat-icon>
+         <h4 id="arregloa"><strong>Informe</strong></h4>
        </a>
      </li>
 
      <li>
-       <a class="option" href="#">
-         <i class="fas fa-video" title="Cursos"></i>
-         <h4>Cursos</h4>
-       </a>
-     </li>
-
-     <li>
-       <a class="option" href="#">
-         <i class="far fa-sticky-note" title="Blog"></i>
-         <h4>Blog</h4>
-       </a>
-     </li>
-
-     <li>
-       <a class="option" href="#">
-         <i class="far fa-id-badge" title="Contacto"></i>
-         <h4>Contacto</h4>
-       </a>
-     </li>
-
-     <li href="#">
-       <a class="option" href="#">
-         <i class="far fa-address-card" title="Nosotros"></i>
-         <h4>Nosotros</h4>
-       </a>
+      <a class="option"  href="#">
+        <mat-icon id="arreglo" title="actividad" svgIcon="actividad"></mat-icon>
+        <h4 id="arregloa"><strong>Actividad</strong></h4>
+      </a>
      </li>
    </ul>
  </nav>

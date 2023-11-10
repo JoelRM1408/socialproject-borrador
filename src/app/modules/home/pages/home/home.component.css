@@ -48,6 +48,7 @@
   -moz-transition: all .5s ease-in-out;
   -ms-transition: all .5s ease-in-out;
   -o-transition: all .5s ease-in-out;
+  background: #EDF1F7;
 }
 
 @media screen and (max-width : 600px) {
